@@ -30,7 +30,7 @@ const ModalRegister = ({fetchUsers}) => {
       <Modal
         title="Ingresa o registrate"
         open={isModalOpen}
-        onOk={handleOpenModal}
+        onOk={handleOnSubmit}
         onCancel={handleOpenModal}
       >
         <Space

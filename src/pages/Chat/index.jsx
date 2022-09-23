@@ -16,10 +16,10 @@ const Chat = () => {
   }, []);
 
   useEffect(() =>{
-    const pusher = new Pusher("18e101358e8bff0fb34e",{
+    const pusher = new Pusher("fe07f73383d210d863f2",{
       cluster: "us2"
     });
-    const channel = pusher.subscribe("my.chat");
+    const channel = pusher.subscribe("my-chat");
     channel.bind("my-list-contacts", async({ message}) =>{
       console.log("message from pusher", message);
     });
