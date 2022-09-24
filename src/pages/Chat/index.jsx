@@ -1,20 +1,19 @@
 import { useState, useEffect } from "react";
 import { ModalRegister, DrawerList } from "../../components";
-import {get} from "../../service";
+import { get } from "../../service";
 import Pusher from "pusher-js";
 
 const Chat = () => {
-  const [users,setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
+
   const fetchUsers = async () =>{
     const response = await get("/user");
     console.log(response);
     setUsers(response.data);
   };
-
   useEffect(() =>{
     fetchUsers();
   }, []);
-
   useEffect(() =>{
     const pusher = new Pusher("fe07f73383d210d863f2",{
       cluster: "us2"
@@ -24,13 +23,11 @@ const Chat = () => {
       console.log("message from pusher", message);
     });
   }, [])
-
   return (
     <div>
       {users.length > 0 && <DrawerList users={users} />}
-      <ModalRegister fetchUsers={fetchUsers}/>
+      <ModalRegister fetchUsers={fetchUsers} />
     </div>
   );
 };
-
 export default Chat;
