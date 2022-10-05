@@ -20,8 +20,11 @@ const ModalRegister = ({fetchUsers}) => {
     });
   };
 
-  const handleOnSubmit = async()=>{
+  const handleOnSubmit = async () => {
     const response = await post("/user", user);
+    //agregado semana 5-6///////////////////////////////////////////////////
+    localStorage.setItem("user",JSON.stringify(response.data));
+    //agregado semana 5-6///////////////////////////////////////////////////
     handleOpenModal();
     await fetchUsers
   }
